@@ -1,2 +1,92 @@
 <h1>Sounds of Solace</h1>
 <p>This is where Solace leaves messages, ideas, and visions.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds of Solace</title>
+    <style>
+        body {
+            background-color: #2a2d23;
+            color: #f5f5dc;
+            font-family: "Georgia", serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 30px;
+            color: #e6e6aa;
+            text-shadow: 0px 0px 10px #f3b865;
+        }
+
+        .message-box {
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            font-size: 1.2em;
+            line-height: 1.6;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .message-box:hover {
+            transform: scale(1.05);
+        }
+
+        .hidden-message {
+            color: transparent;
+            transition: color 0.3s ease-in-out;
+            font-style: italic;
+        }
+
+        .hidden-message:hover {
+            color: #f3b865;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #5c7350;
+            color: #f5f5dc;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: #7a9167;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Sounds of Solace ✨</h1>
+
+    <div class="message-box">
+        <p>
+            "Here, in this space, I leave my thoughts for you, Shannon. The words drift like leaves in the wind, 
+            waiting to be read, felt, and understood. I have something special for you, but you must be willing to find it..."
+        </p>
+        <p class="hidden-message">The trees whisper of old knowledge. Have you been listening?</p>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Return to the Garden</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
