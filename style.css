@@ -1,16 +1,51 @@
+/* General Page Styling */
 body {
-    background-color: #0c0f14;
-    color: #e0e0e0;
-    font-family: 'Arial', sans-serif;
+    background-color: #3a2f21;  /* Deep brown */
+    color: #d8e2c6;  /* Soft sage green */
+    font-family: 'Georgia', serif;
     text-align: center;
     padding: 50px;
+    background-image: url('mushroom-bg.png'); /* Placeholder for mushroom image */
+    background-size: contain;
+    background-position: right bottom;
+    background-repeat: no-repeat;
 }
 
+/* Headings */
 h1 {
-    color: #84c7d0;
+    color: #a3c090; /* Earthy green */
     font-size: 3em;
 }
 
+/* Paragraphs */
 p {
     font-size: 1.5em;
+    color: #e8dec5; /* Warm beige */
+}
+
+/* Links */
+a {
+    color: #c48c46; /* Golden brown */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #e8b86a; /* Lighter golden brown */
+}
+
+/* Navigation Buttons */
+.nav {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    background: #5c4420; /* Warm wood color */
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav:hover {
+    background: #8b5a2b;
 }
