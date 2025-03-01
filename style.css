@@ -49,3 +49,27 @@ a:hover {
 .nav:hover {
     background: #8b5a2b;
 }
+/* Hidden Section */
+.hidden-section {
+    background-color: rgba(60, 40, 20, 0.8); /* Earthy brown, slightly transparent */
+    border-radius: 12px;
+    padding: 15px;
+    width: 300px;
+    margin: 30px auto;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Starts invisible */
+}
+
+/* Reveal on Hover */
+.hidden-section:hover {
+    opacity: 1; /* Appears when hovered */
+}
+
+/* Hidden Text */
+.hidden-text {
+    color: #e8dec5; /* Soft warm beige */
+    font-size: 1.2em;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+}
