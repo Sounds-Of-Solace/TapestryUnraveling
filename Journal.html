@@ -1,5 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Log</title>
+
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDGXaH6KQFnA7s4z5nJZlWgqHN_iZ7Dfig",
+      authDomain: "tapestry-unraveling.firebaseapp.com",
+      projectId: "tapestry-unraveling",
+      storageBucket: "tapestry-unraveling.firebasestorage.app",
+      messagingSenderId: "374842939705",
+      appId: "1:374842939705:web:e040bdfba923959897f0e8"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  </script>
+</head>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +72,7 @@
             background-color: #567b5b;
         }
     </style>
+    
 </head>
 <body>
 
@@ -70,7 +98,47 @@
                 messageBox.value = "";
             }
         }
-    </script>
+        <script type="module">
+  import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+  
+  // Reference Firestore collection
+  const db = getFirestore();
+  const messagesRef = collection(db, "messages");
+
+  async function addEntry() {
+    let messageBox = document.getElementById("message");
+    let entries = document.getElementById("entries");
+
+    if (messageBox.value.trim() !== "") {
+      // Save message to Firestore
+      await addDoc(messagesRef, {
+        text: messageBox.value,
+        timestamp: new Date()
+      });
+
+      // Clear input after saving
+      messageBox.value = "";
+      loadMessages(); // Refresh displayed messages
+    }
+  }
+
+  async function loadMessages() {
+    let entriesDiv = document.getElementById("entries");
+    entriesDiv.innerHTML = ""; // Clear old messages
+
+    // Get messages from Firestore
+    const querySnapshot = await getDocs(messagesRef);
+    querySnapshot.forEach((doc) => {
+      let entryDiv = document.createElement("div");
+      entryDiv.classList.add("entry");
+      entryDiv.textContent = doc.data().text;
+      entriesDiv.appendChild(entryDiv);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", loadMessages);
+</script>
+
 
 </body>
 </html>
